@@ -2,7 +2,7 @@ import sqlalchemy
 from databases import Database
 
 
-DATABASE_URL = "sqlite:///contact_form.db"
+DATABASE_URL = "sqlite:///course_category.db"
 database = Database(DATABASE_URL)
 sqlalchemy_engine = sqlalchemy.create_engine(DATABASE_URL)
 

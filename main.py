@@ -1,15 +1,15 @@
 from fastapi import FastAPI
-from models.contact_form import metadata, contact_form
+from models.course_category import metadata, course_category
 from db import Database
 import sqlalchemy
 from db import sqlalchemy_engine
-from router.contact_form import router as contact_form_router
+from router.course_category import router as course_category_router
 
 
 app = FastAPI()
 
 
-DATABASE_URL = "sqlite:///contact_form.db"
+DATABASE_URL = "sqlite:///course_category.db"
 database = Database(DATABASE_URL)
 sqlalchemy_engine = sqlalchemy.create_engine(DATABASE_URL)
 
@@ -25,4 +25,4 @@ async def shutdown():
     await database.disconnect()
 
 metadata.create_all(sqlalchemy_engine)
-app.include_router(contact_form_router)
+app.include_router(course_category_router)
